@@ -1,43 +1,62 @@
-/* Базовые сбросы */
-*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
-body{margin:0;background-color:#0A0A0A;color:#F5F5F5;font-family:'Montserrat',sans-serif;overflow-x:hidden}
+/* Базовый сброс и шрифты */
+*, ::after, ::before { box-sizing: border-box; border-width: 0; border-style: solid; }
+body { margin: 0; background-color: #0A0A0A; color: #F5F5F5; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-/* Сетка и макет */
-.flex{display:flex}.grid{display:grid}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}
-.w-full{width:100%}.max-w-7xl{max-width:80rem}.max-w-5xl{max-width:64rem}.max-w-xs{max-width:20rem}.mx-auto{margin-left:auto;margin-right:auto}
-.gap-4{gap:1rem}.gap-8{gap:2rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}
-.space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 2rem; }
+/* Сетка (Grid) - Исправляет огромные вкладки */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.gap-8 { gap: 2rem; }
 
-/* Отступы */
-.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}
-.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-20{padding-left:5rem;padding-right:5rem}
-.p-8{padding:2rem}.p-10{padding:2.5rem}.pb-24{padding-bottom:6rem}
-
-/* Цвета и фоны */
-.bg-\[\#0A0A0A\]{background-color:#0A0A0A}.bg-\[\#F5F5F5\]{background-color:#F5F5F5}.bg-white{background-color:#fff}
-.bg-white\/5{background-color:rgba(255,255,255,0.05)}.bg-slate-50{background-color:#f8fafc}
-.text-white{color:#fff}.text-black{color:#000}.text-\[\#B8860B\]{color:#B8860B}
-.text-white\/80{color:rgba(255,255,255,0.8)}.text-white\/40{color:rgba(255,255,255,0.4)}.text-white\/60{color:rgba(255,255,255,0.6)}.text-white\/10{color:rgba(255,255,255,0.1)}
-.border-white\/5{border-color:rgba(255,255,255,0.05)}.border-white\/10{border-color:rgba(255,255,255,0.1)}.border-b{border-bottom-width:1px}
-
-/* Типографика */
-.text-xl{font-size:1.25rem}.text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}.text-6xl{font-size:3.75rem}
-.font-bold{font-weight:700}.font-light{font-weight:300}.uppercase{text-transform:uppercase}.italic{font-style:italic}
-.tracking-\[0.2em\]{letter-spacing:0.2em}.tracking-widest{letter-spacing:0.1em}.tracking-tighter{letter-spacing:-0.05em}
-
-/* Адаптивность */
+/* Адаптивность для карточек (3 в ряд на компьютерах) */
 @media (min-width: 768px) {
-  .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .md\:text-5xl{font-size:3rem}.md\:text-7xl{font-size:4.5rem}.md\:text-\[10rem\]{font-size:10rem}
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
 }
 
-/* Стили из HTML */
-.logo-font { font-family: 'Unbounded', sans-serif; }
-h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-.hero-bg { background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('hero.jpg'); background-size: cover; background-position: center; min-height: 100vh; }
-.tour-card { background: #fff; border-radius: 20px; color: #1a1a1a; overflow: hidden; transition: 0.4s; }
+/* Форма и кнопка (Делаем их широкими) */
+.w-full { width: 100% !important; }
+.max-w-xs { max-width: 20rem; margin-left: auto; margin-right: auto; }
+.space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 2rem; }
+
+input {
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 0;
+    color: white;
+    outline: none;
+    text-align: center;
+}
+
+/* Стили кнопки */
+button#submitBtn {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Цвета и фоны секций */
+.bg-\[\#F5F5F5\] { background-color: #F5F5F5 !important; }
+.bg-\[\#0A0A0A\] { background-color: #0A0A0A !important; }
+.text-black { color: #000 !important; }
+
+/* Шапка и логотип */
+.fixed { position: fixed; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.logo-font { font-family: 'Unbounded', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; }
+
+/* Стили карточек из вашего проекта */
+.tour-card { background: white; border-radius: 20px; color: #1a1a1a; overflow: hidden; transition: 0.4s; }
+.tour-image-container { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+.tour-image-container img { width: 100%; height: 100%; object-fit: cover; }
+.p-8 { padding: 2rem; }
+
+/* Анимация появления */
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
 .reveal.active { opacity: 1; transform: translateY(0); }
-.rounded-2xl { border-radius: 1rem; }.rounded-full { border-radius: 9999px; }
