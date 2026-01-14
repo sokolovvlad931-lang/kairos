@@ -1,58 +1,47 @@
-/* Финальный CSS для Кайрос */
+/* Финальный исправленный CSS */
 *,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
 html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif;scroll-behavior:smooth}
 body{margin:0;line-height:inherit;background-color:#0A0A0A;color:#F5F5F5;font-family:'Montserrat',sans-serif;overflow-x:hidden}
 
-/* Базовая сетка и позиционирование */
+/* Фикс отступов и видимости */
+.py-20{padding-top:5rem !important;padding-bottom:5rem !important}
+.py-24{padding-top:6rem !important;padding-bottom:6rem !important}
+.text-black{color:#000000 !important}
+.text-white{color:#ffffff !important}
+
+/* Сетка и база */
 .fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}
 .z-50{z-index:50}.flex{display:flex}.grid{display:grid}.items-center{align-items:center}
 .justify-center{justify-content:center}.justify-between{justify-content:space-between}
 .w-full{width:100%}.max-w-7xl{max-width:80rem}.max-w-5xl{max-width:64rem}.mx-auto{margin-left:auto;margin-right:auto}
 
-/* Отступы */
-.p-6{padding:1.5rem}.p-8{padding:2rem}.p-10{padding:2.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}
-.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}
-.gap-4{gap:1rem}.gap-8{gap:2rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.mb-8{margin-bottom:2rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}
-
 /* Типографика */
-.text-white{color:#fff}.text-white\/80{color:rgba(255,255,255,0.8)}.text-white\/40{color:rgba(255,255,255,0.4)}.text-black{color:#000}
 .text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}.text-6xl{font-size:3.75rem}
 .font-bold{font-weight:700}.font-light{font-weight:300}.uppercase{text-transform:uppercase}.italic{font-style:italic}
 .leading-\[0.9\]{line-height:0.9}.tracking-\[0.2em\]{letter-spacing:0.2em}.tracking-widest{letter-spacing:0.1em}
-.drop-shadow-2xl{filter:drop-shadow(0 25px 25px rgba(0,0,0,0.25))}
 
-/* Цвета и фоны */
-.bg-transparent{background-color:transparent}.bg-white{background-color:#fff}.bg-white\/90{background-color:rgba(255,255,255,0.9)}
-.bg-\[\#0A0A0A\]{background-color:#0A0A0A}.bg-\[\#F5F5F5\]{background-color:#F5F5F5}
-.border-white\/5{border-color:rgba(255,255,255,0.05)}.rounded-full{border-radius:9999px}.rounded-2xl{border-radius:1.5rem}
+/* Цвета секций */
+.bg-\[\#0A0A0A\]{background-color:#0A0A0A !important}
+.bg-\[\#F5F5F5\]{background-color:#F5F5F5 !important}
+.bg-white{background-color:#ffffff !important}
 
-/* Адаптив (Mobile & Desktop) */
+/* Адаптив */
 @media (min-width: 768px) {
-    .md\:text-5xl{font-size:3rem}
-    .md\:text-6xl{font-size:3.75rem}
-    .md\:text-7xl{font-size:4.5rem}
-    .md\:text-\[10rem\]{font-size:10rem}
-    .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .md\:text-\[10rem\]{font-size:10rem}
+    .md\:text-7xl{font-size:4.5rem}
 }
 
-/* Стили из твоего HTML */
+/* Специфические стили из твоего проекта */
 .logo-font { font-family: 'Unbounded', sans-serif; }
 h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-.hero-bg { background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('hero.jpg'); background-size: cover; background-position: center; min-height: 100vh; }
+.hero-bg { 
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('hero.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    min-height: 100vh; 
+}
 .tour-card { background: #ffffff; border-radius: 20px; color: #1a1a1a; overflow: hidden; transition: 0.4s; cursor: pointer; }
-.tour-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-.tour-image-container { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
-.tour-image-container img { width: 100%; height: 100%; object-fit: cover; }
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 .backdrop-blur-xl { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
-
-/* Исправления для мобильной версии с твоего скриншота */
-@media (max-width: 768px) {
-    h1 { font-size: 4rem !important; line-height: 1 !important; }
-    .hero-bg { background-attachment: scroll; }
-    nav { padding: 1rem !important; }
-    .logo-font { font-size: 1.2rem !important; }
-}
