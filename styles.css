@@ -1,0 +1,83 @@
+/* Tailwind CSS production для твоего HTML */
+/* Base */
+*, ::before, ::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+body{margin:0;font-family:Montserrat,sans-serif;background-color:#0A0A0A;color:#F5F5F5;overflow-x:hidden}
+h1,h2,h3{font-family:'Cormorant Garamond',serif}
+/* Typography & Layout */
+.text-white{color:#fff}
+.text-white\/80{color:rgba(255,255,255,0.8)}
+.text-black{color:#000}
+.font-light{font-weight:300}
+.font-bold{font-weight:700}
+.uppercase{text-transform:uppercase}
+.italic{font-style:italic}
+.not-italic{font-style:normal}
+.leading-[0.9]{line-height:.9}
+.tracking-[0.2em]{letter-spacing:.2em}
+.tracking-tight{letter-spacing:.05em}
+.tracking-widest{letter-spacing:.1em}
+/* Flex & Grid */
+.flex{display:flex}
+.items-center{align-items:center}
+.items-start{align-items:flex-start}
+.justify-between{justify-content:space-between}
+.justify-center{justify-content:center}
+.gap-4{gap:1rem}
+.gap-8{gap:2rem}
+.gap-10{gap:2.5rem}
+.grid{display:grid}
+.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.px-4{padding-left:1rem;padding-right:1rem}
+.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.px-10{padding-left:2.5rem;padding-right:2.5rem}
+.px-20{padding-left:5rem;padding-right:5rem}
+.py-4{padding-top:1rem;padding-bottom:1rem}
+.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+.py-8{padding-top:2rem;padding-bottom:2rem}
+.py-24{padding-top:6rem;padding-bottom:6rem}
+/* Backgrounds */
+.bg-[#0A0A0A]{background-color:#0A0A0A}
+.bg-white\/5{background-color:rgba(255,255,255,.05)}
+.bg-white\/90{background-color:rgba(255,255,255,.9)}
+.bg-[#B8860B]{background-color:#B8860B}
+/* Borders */
+.border{border-width:1px}
+.border-white\/10{border-color:rgba(255,255,255,.1)}
+.rounded-full{border-radius:9999px}
+.rounded-xl{border-radius:1rem}
+.rounded-2xl{border-radius:1.5rem}
+.rounded-3xl{border-radius:2rem}
+/* Width & Height */
+.w-full{width:100%}
+.md\:w-auto{width:auto}
+/* Cursor */
+.cursor-pointer{cursor:pointer}
+/* Hover effects */
+.hover\:bg-[#B8860B]:hover{background-color:#B8860B}
+.hover\:text-white:hover{color:#fff}
+.hover\:text-[#B8860B]:hover{color:#B8860B}
+.transition-all{transition:all .3s ease}
+/* Shadows */
+.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}
+.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+.drop-shadow-lg{text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.drop-shadow-2xl{text-shadow:0 25px 25px rgba(0,0,0,.25)}
+/* Position */
+.relative{position:relative}
+.absolute{position:absolute}
+.inset-0{top:0;right:0;bottom:0;left:0}
+.top-6{top:1.5rem}
+.right-6{right:1.5rem}
+.z-10{z-index:10}
+.z-50{z-index:50}
+/* Overflow & Object-fit */
+.overflow-hidden{overflow:hidden}
+.object-cover{object-fit:cover}
+/* Aspect ratio */
+.aspect-video{aspect-ratio:16/9}
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+.reveal.active{opacity:1;transform:translateY(0)}
