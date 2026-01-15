@@ -46,11 +46,20 @@
 
 <nav class="fixed w-full z-[100] px-6 py-6 flex justify-between items-center bg-black/10 backdrop-blur-sm">
     <div class="logo-font text-xl md:text-2xl uppercase text-white tracking-[0.2em] font-bold">Кайрос</div>
+    
     <div class="flex items-center gap-4 md:gap-8">
-        <a href="https://t.me/p_kairos" target="_blank" class="text-white hover:text-[#B8860B] transition-all">
-            <i class="fa-brands fa-telegram text-2xl"></i>
+        <div class="hidden sm:flex items-center gap-6">
+            <a href="tel:+79991234567" class="text-white/80 hover:text-white text-[11px] tracking-widest transition-all font-light">
+                +7 (999) 123-45-67
+            </a>
+            <a href="https://t.me/p_kairos" target="_blank" class="text-white hover:text-[#B8860B] transition-all">
+                <i class="fa-brands fa-telegram text-2xl"></i>
+            </a>
+        </div>
+
+        <a href="#contact" class="bg-white text-black px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-[#B8860B] hover:text-white transition-all shadow-lg">
+            Сделать заявку
         </a>
-        <a href="#contact" class="bg-white text-black px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-[#B8860B] hover:text-white transition-all">Заказать</a>
     </div>
 </nav>
 
@@ -60,6 +69,28 @@
         <p class="reveal text-white/70 text-base md:text-lg max-w-xl mx-auto font-light tracking-wide delay-200">Авторские путешествия для тех, кто ищет вдохновение в дикой природе.</p>
     </div>
 </header>
+
+<section class="py-24 px-6 md:px-20 bg-[#0A0A0A]">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="reveal">
+                <div class="text-[#B8860B] text-4xl mb-6 italic">01</div>
+                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light">Локальная экспертиза</h3>
+                <p class="text-white/50 text-sm leading-relaxed font-light">Мы живем в Сибири и знаем тропы, о которых не пишут в путеводителях. Каждый маршрут проверен лично.</p>
+            </div>
+            <div class="reveal delay-200">
+                <div class="text-[#B8860B] text-4xl mb-6 italic">02</div>
+                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light">Малые группы</h3>
+                <p class="text-white/50 text-sm leading-relaxed font-light">Никаких автобусов на 50 человек. Только уютные компании до 8-10 участников для глубокого погружения.</p>
+            </div>
+            <div class="reveal delay-400">
+                <div class="text-[#B8860B] text-4xl mb-6 italic">03</div>
+                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light">Эстетика и комфорт</h3>
+                <p class="text-white/50 text-sm leading-relaxed font-light">Мы выбираем лучшие локации для проживания и заботимся о том, чтобы каждое ваше фото было произведением искусства.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section id="tours" class="py-24 px-6 md:px-20 bg-[#F5F5F5]">
     <div class="max-w-7xl mx-auto">
@@ -263,13 +294,17 @@
     function openModal(id) {
         const tour = tours.find(t => t.id === id);
         document.getElementById('modal-body').innerHTML = `
-            <button onclick="closeModal()" class="absolute top-4 right-6 text-2xl opacity-30 hover:opacity-100">✕</button>
-            <img src="${tour.image}" class="w-full aspect-video object-cover rounded-2xl mb-6 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'">
-            <h2 class="text-3xl italic mb-4 text-center">${tour.title}</h2>
-            <p class="text-gray-600 mb-8 font-light text-left text-sm leading-relaxed" style="white-space: pre-line;">${tour.desc}</p>
-            <div class="flex justify-between items-center bg-white p-6 rounded-2xl border">
-                <span class="text-2xl font-bold">${tour.price}</span>
-                <a href="#contact" onclick="closeModal()" class="btn-gold text-white px-8 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest">Заказать</a>
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-2xl opacity-30 hover:opacity-100 z-50">✕</button>
+            <div class="space-y-6">
+                <img src="${tour.image}" class="w-full aspect-video object-cover rounded-2xl shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'">
+                <div class="px-2">
+                    <h2 class="text-4xl italic mb-4">${tour.title}</h2>
+                    <p class="text-gray-600 mb-8 font-light text-sm leading-relaxed whitespace-pre-line">${tour.desc}</p>
+                    <div class="flex justify-between items-center bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                        <span class="text-2xl font-bold">${tour.price}</span>
+                        <a href="#contact" onclick="closeModal()" class="btn-gold text-white px-8 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest">Заказать</a>
+                    </div>
+                </div>
             </div>`;
         document.getElementById('modal').style.display = 'block';
         document.body.classList.add('no-scroll');
@@ -306,6 +341,7 @@
 </script>
 </body>
 </html>
+
 
 
 
