@@ -1,54 +1,55 @@
-/* 1. БАЗОВЫЕ СБРОСЫ (КАК В TAILWIND) */
-*, ::after, ::before { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; }
-html { line-height: 1.5; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { margin: 0; background-color: #0A0A0A; color: #F5F5F5; font-family: 'Montserrat', sans-serif; }
-
-/* 2. СЕТКА И КОЛОНКИ (ИСПРАВЛЯЕТ ОГРОМНЫЕ ВКЛАДКИ) */
-.grid { display: grid !important; }
+/* 1. БАЗОВАЯ СЕТКА И ГИБКОСТЬ (FLEX) */
 .flex { display: flex !important; }
+.grid { display: grid !important; }
 .items-center { align-items: center !important; }
 .justify-between { justify-content: space-between !important; }
+.justify-center { justify-content: center !important; }
+.flex-col { flex-direction: column !important; }
 
+/* 2. КОЛОНКИ (АДАПТИВНОСТЬ) */
 /* По умолчанию 1 колонка (для телефонов) */
 .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 
-/* 3 колонки для ПК (ширина экрана больше 768px) */
+/* Настройки для планшетов и ПК */
 @media (min-width: 768px) {
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
     .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
     .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
     .md\:text-7xl { font-size: 4.5rem !important; }
+    .md\:text-5xl { font-size: 3rem !important; }
 }
 
-/* 3. ФОРМА И КНОПКА (ИСПРАВЛЯЕТ УЗКУЮ КНОПКУ) */
+@media (min-width: 1024px) {
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+
+/* 3. ОТСТУПЫ И РАЗМЕРЫ */
+.max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
 .w-full { width: 100% !important; }
-.max-w-xs { max-width: 20rem !important; margin: 0 auto; }
-.py-20 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+.gap-4 { gap: 1rem !important; }
+.gap-6 { gap: 1.5rem !important; }
 .gap-8 { gap: 2rem !important; }
+.gap-10 { gap: 2.5rem !important; }
+.gap-12 { gap: 3rem !important; }
 
-/* Стили полей ввода */
-input {
-    width: 100% !important;
-    background: transparent !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-    padding: 1rem 0 !important;
-    color: white !important;
-    text-align: center;
-}
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
 
-/* 4. ЦВЕТА СЕКЦИЙ */
-.bg-\[\#F5F5F5\] { background-color: #F5F5F5 !important; }
-.bg-\[\#0A0A0A\] { background-color: #0A0A0A !important; }
-.text-black { color: #000000 !important; }
+/* 4. ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ */
+.rounded-full { border-radius: 9999px !important; }
+.rounded-2xl { border-radius: 1rem !important; }
+.uppercase { text-transform: uppercase !important; }
+.tracking-widest { letter-spacing: 0.1em !important; }
+.transition-all { transition: all 0.5s ease !important; }
 
-/* 5. ВАШИ КЛАССЫ ИЗ HTML */
-.logo-font { font-family: 'Unbounded', sans-serif; }
-h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-.hero-bg { 
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('hero.jpg'); 
-    background-size: cover; background-position: center; min-height: 100vh; 
-}
-.tour-card { background: white; border-radius: 20px; color: #1a1a1a; overflow: hidden; }
-.tour-image-container { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
-.tour-image-container img { width: 100%; height: 100%; object-fit: cover; }
-.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+/* Иконки Font Awesome */
+.fa-brands { font-size: inherit; color: inherit; }
+
+/* Фикс для навигации при скролле */
+.backdrop-blur-xl { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); background: rgba(10, 10, 10, 0.7); }
