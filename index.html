@@ -14,9 +14,8 @@
         .logo-font { font-family: 'Unbounded', sans-serif; }
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
         
-        /* Улучшенный фон */
         .hero-bg { 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, #0A0A0A 100%), url('hero.jpg'); 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, #0A0A0A 100%), url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=1920&q=80'); 
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         
@@ -25,12 +24,10 @@
         .tour-image-container { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
         .tour-image-container img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* Галерея */
         .gallery-item { aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #111; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; opacity: 0.6; }
         .gallery-item:hover img { transform: scale(1.1); opacity: 1; }
 
-        /* Отзывы */
         .review-card { background: #111; border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; }
 
         #modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); }
@@ -81,7 +78,6 @@
 <section class="py-24 px-6 md:px-20 bg-[#0A0A0A] border-t border-white/5">
     <div class="max-w-7xl mx-auto">
         <h2 class="text-4xl md:text-6xl text-white mb-16 italic font-light reveal text-center">Впечатления</h2>
-        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="review-card reveal">
                 <p class="text-white/60 text-sm italic mb-6">"Это было лучшее решение лета. Алтай с Кайросом — это про людей и атмосферу."</p>
@@ -140,15 +136,100 @@
 
 <script>
     const tours = [
-        { id: 1, title: "Алтай: Аккем", price: "72 500 ₽", image: "altay.jpg", desc: "Экспедиция к подножию Белухи." },
-        { id: 2, title: "Байкал: Ольхон", price: "58 000 ₽", image: "baikal.jpg", desc: "Магия зимнего льда Ольхона." },
-        { id: 3, title: "Хакасия: Степи", price: "42 900 ₽", image: "hakasia.jpg", desc: "Древние курганы и степи." },
-        { id: 4, title: "Шерегеш: Снег", price: "45 500 ₽", image: "gesh.jpg", desc: "Лучший пухляк и тайга." },
-        { id: 5, title: "Телецкое Озеро", price: "54 000 ₽", image: "altay_2.jpg", desc: "Золотое озеро и водопады." },
-        { id: 6, title: "Чуйский Тракт", price: "68 000 ₽", image: "hero_road.jpg", desc: "Одна из красивейших дорог мира." }
+        { 
+            id: 1, 
+            title: "Алтай: Аккем", 
+            price: "72 500 ₽", 
+            image: "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=800&q=80", 
+            desc: `Экспедиция к подножию высочайшей точки Сибири — горы Белуха.
+
+Маршрут:
+• День 1: Сбор в Новосибирске, трансфер до Тюнгура.
+• День 2: Переход через перевал Кузуяк к реке Аккем.
+• День 3: Подъем к озеру Аккем, вид на «Белую Стену».
+• День 4: Радиальный выход в Долину Семи озер и к леднику.
+• День 5: Посещение мистической долины Ярлу (Цветные скалы).
+• День 6: Спуск вдоль реки Текелю и возвращение на базу.
+• День 7: Трансфер в Новосибирск.` 
+        },
+        { 
+            id: 2, 
+            title: "Байкал: Ольхон", 
+            price: "58 000 ₽", 
+            image: "https://images.unsplash.com/photo-1490682143124-c73aef632821?auto=format&fit=crop&w=800&q=80", 
+            desc: `Магия самого глубокого озера планеты.
+
+Маршрут:
+• День 1: Встреча в Иркутске, трансфер на остров Ольхон.
+• День 2: Поездка на мыс Хобой. Смотрим на ледяные гроты и наплески.
+• День 3: Юг острова: пузырьки во льду, остров Огой и ступа Просветления.
+• День 4: Рассвет у скалы Шаманка — одного из самых энергетических мест мира.
+• День 5: Экскурсия в падь Узуры, обед на льду (байкальская кухня).
+• День 6: Прощание с Байкалом и возвращение в Иркутск.` 
+        },
+        { 
+            id: 3, 
+            title: "Хакасия: Степи", 
+            price: "42 900 ₽", 
+            image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80", 
+            desc: `Путешествие во времени: древние курганы и бескрайние степи.
+
+Маршрут:
+• День 1: Выезд из Новосибирска, прибытие в Абакан.
+• День 2: Салбыкский курган — «Долина Царей» Сибири.
+• День 3: Горная гряда «Сундуки» — древняя обсерватория предков.
+• День 4: Посещение Тропы Предков и спуск в пещеру Археологическая.
+• День 5: Саяно-Шушенская ГЭС и музей-заповедник Шушенское.
+• День 6: Возвращение в Новосибирск через горные перевалы.` 
+        },
+        { 
+            id: 4, 
+            title: "Шерегеш: Снег", 
+            price: "45 500 ₽", 
+            image: "https://images.unsplash.com/photo-1551632623-67c7db45c718?auto=format&fit=crop&w=800&q=80", 
+            desc: `Горнолыжный отдых на лучшем «пухляке» в России.
+
+Маршрут:
+• День 1: Трансфер из Новосибирска, заселение в уютное шале.
+• День 2: Фрирайд-тур на ратраках на гору Мустаг.
+• День 3: Обучение с гидами на секторах А и Б.
+• День 4: Поход на снегоходах к скалам «Верблюды».
+• День 5: Вечерняя программа: баня на дровах и сибирский чан.
+• День 6: Заключительные спуски и выезд домой.` 
+        },
+        { 
+            id: 5, 
+            title: "Телецкое Озеро", 
+            price: "54 000 ₽", 
+            image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80", 
+            desc: `Золотое озеро Алтая — объект всемирного наследия ЮНЕСКО.
+
+Маршрут:
+• День 1: Прибытие в поселок Артыбаш.
+• День 2: Прогулка на катере по всей акватории озера.
+• День 3: Водопады Корбу и Киште, легенды древнего озера.
+• День 4: Трекинг на гору Тилан-Туу (панорамный вид).
+• День 5: Сплав по реке Бия (легкий уровень сложности).
+• День 6: Трансфер обратно в Новосибирск.` 
+        },
+        { 
+            id: 6, 
+            title: "Чуйский Тракт", 
+            price: "68 000 ₽", 
+            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", 
+            desc: `Авто-путешествие по одной из 10 самых красивых дорог мира.
+
+Маршрут:
+• День 1: Начало пути, перевал Семинский.
+• День 2: Перевал Чике-Таман и слияние рек Чуя и Катунь.
+• День 3: Гейзерное озеро и панорама Северо-Чуйского хребта.
+• День 4: Марсианские горы (Кызыл-Чин) — «Алтайский Марс».
+• День 5: Долина реки Чулышман и каменные грибы.
+• День 6: Возвращение через Курайскую степь.
+• День 7: Финиш в Новосибирске.` 
+        }
     ];
 
-    // Рендер Туров
     const grid = document.getElementById('tour-grid');
     tours.forEach(tour => {
         grid.innerHTML += `
@@ -164,16 +245,14 @@
             </div>`;
     });
 
-    // Рендер Галереи (8 фото)
     const momentsGrid = document.getElementById('moments-grid');
     for(let i=1; i<=8; i++) {
         momentsGrid.innerHTML += `
             <div class="gallery-item reveal">
-                <img src="moment_${i}.jpg" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80'">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80">
             </div>`;
     }
 
-    // Кнопка формы
     const check = document.getElementById('policyCheck');
     const btn = document.getElementById('submitBtn');
     check.addEventListener('change', () => {
@@ -185,9 +264,9 @@
         const tour = tours.find(t => t.id === id);
         document.getElementById('modal-body').innerHTML = `
             <button onclick="closeModal()" class="absolute top-4 right-6 text-2xl opacity-30 hover:opacity-100">✕</button>
-            <img src="${tour.image}" class="w-full aspect-video object-cover rounded-2xl mb-6" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'">
+            <img src="${tour.image}" class="w-full aspect-video object-cover rounded-2xl mb-6 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'">
             <h2 class="text-3xl italic mb-4 text-center">${tour.title}</h2>
-            <p class="text-gray-500 mb-8 font-light text-center text-sm">${tour.desc}</p>
+            <p class="text-gray-600 mb-8 font-light text-left text-sm leading-relaxed" style="white-space: pre-line;">${tour.desc}</p>
             <div class="flex justify-between items-center bg-white p-6 rounded-2xl border">
                 <span class="text-2xl font-bold">${tour.price}</span>
                 <a href="#contact" onclick="closeModal()" class="btn-gold text-white px-8 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest">Заказать</a>
@@ -201,23 +280,32 @@
         document.body.classList.remove('no-scroll');
     }
 
-    // Анимация скролла
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Telegram
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const token = '8595860145:AAG4Zf2EMZ2cA9q2VcEP6Jsu_JdbVCTnUmk'; 
         const chatId = '958002202';
-        const text = `🚀 ЗАЯВКА КАЙРОС\n👤 Имя: ${document.getElementById('userName').value}\n📞 Тел: ${document.getElementById('userPhone').value}`;
+        const name = document.getElementById('userName').value;
+        const phone = document.getElementById('userPhone').value;
+        const text = `🚀 ЗАЯВКА КАЙРОС\n👤 Имя: ${name}\n📞 Тел: ${phone}`;
+        
         fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
-        .then(res => { if(res.ok) { alert('Заявка отправлена!'); this.reset(); } });
+        .then(res => { 
+            if(res.ok) { 
+                alert('Заявка отправлена!'); 
+                this.reset(); 
+            } else {
+                alert('Ошибка при отправке. Попробуйте снова.');
+            }
+        });
     });
 </script>
 </body>
 </html>
+
 
 
