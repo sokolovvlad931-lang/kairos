@@ -15,7 +15,7 @@
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
         
         .hero-bg { 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, #0A0A0A 100%), url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=1920&q=80'); 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, #0A0A0A 100%), url('hero.jpg'); 
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         
@@ -140,7 +140,7 @@
             id: 1, 
             title: "Алтай: Аккем", 
             price: "72 500 ₽", 
-            image: "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=800&q=80", 
+            image: "altay.jpg", 
             desc: `Экспедиция к подножию высочайшей точки Сибири — горы Белуха.
 
 Маршрут:
@@ -156,7 +156,7 @@
             id: 2, 
             title: "Байкал: Ольхон", 
             price: "58 000 ₽", 
-            image: "https://images.unsplash.com/photo-1490682143124-c73aef632821?auto=format&fit=crop&w=800&q=80", 
+            image: "baikal.jpg", 
             desc: `Магия самого глубокого озера планеты.
 
 Маршрут:
@@ -171,7 +171,7 @@
             id: 3, 
             title: "Хакасия: Степи", 
             price: "42 900 ₽", 
-            image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80", 
+            image: "hakasia.jpg", 
             desc: `Путешествие во времени: древние курганы и бескрайние степи.
 
 Маршрут:
@@ -186,7 +186,7 @@
             id: 4, 
             title: "Шерегеш: Снег", 
             price: "45 500 ₽", 
-            image: "https://images.unsplash.com/photo-1551632623-67c7db45c718?auto=format&fit=crop&w=800&q=80", 
+            image: "gesh.jpg", 
             desc: `Горнолыжный отдых на лучшем «пухляке» в России.
 
 Маршрут:
@@ -201,7 +201,7 @@
             id: 5, 
             title: "Телецкое Озеро", 
             price: "54 000 ₽", 
-            image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80", 
+            image: "altay_2.jpg", 
             desc: `Золотое озеро Алтая — объект всемирного наследия ЮНЕСКО.
 
 Маршрут:
@@ -216,7 +216,7 @@
             id: 6, 
             title: "Чуйский Тракт", 
             price: "68 000 ₽", 
-            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80", 
+            image: "hero_road.jpg", 
             desc: `Авто-путешествие по одной из 10 самых красивых дорог мира.
 
 Маршрут:
@@ -249,7 +249,7 @@
     for(let i=1; i<=8; i++) {
         momentsGrid.innerHTML += `
             <div class="gallery-item reveal">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80">
+                <img src="moment_${i}.jpg" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80'">
             </div>`;
     }
 
@@ -306,6 +306,7 @@
 </script>
 </body>
 </html>
+
 
 
 
