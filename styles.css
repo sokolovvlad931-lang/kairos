@@ -1,4 +1,4 @@
-/* 1. БАЗОВАЯ СЕТКА И ГИБКОСТЬ */
+/* 1. БАЗОВАЯ СЕТКА И ГИБКОСТЬ (FLEX) */
 .flex { display: flex !important; }
 .grid { display: grid !important; }
 .items-center { align-items: center !important; }
@@ -7,9 +7,11 @@
 .flex-col { flex-direction: column !important; }
 
 /* 2. КОЛОНКИ (АДАПТИВНОСТЬ) */
+/* По умолчанию 1 колонка (для телефонов) */
 .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
 .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 
+/* Настройки для планшетов и ПК */
 @media (min-width: 768px) {
     .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
     .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
@@ -22,88 +24,32 @@
     .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 }
 
-/* 3. ОБНОВЛЕННЫЕ ЦВЕТА (СВЕТЛАЯ ТЕМА) */
-body { 
-    background-color: #FFFFFF !important; 
-    color: #1A1A1A !important; 
-}
-
-/* Секции, которые были черными */
-.bg-\[\#0A0A0A\] { background-color: #F8F8F6 !important; } 
-.text-white { color: #1A1A1A !important; } 
-.text-white\/50 { color: #666666 !important; } 
-.text-white\/70 { color: #444444 !important; }
-
-/* 4. НАВИГАЦИЯ (ШАПКА) */
-.backdrop-blur-md { 
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); 
-    background: rgba(255, 255, 255, 0.85) !important;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-/* КНОПКА ЗАЯВКИ В МЕНЮ (Теперь она видна!) */
-nav a[href="#contact"] {
-    background-color: #1A1A1A !important; /* Черный фон */
-    color: #FFFFFF !important; /* Белый текст */
-    padding: 10px 24px !important;
-    border-radius: 9999px !important;
-    transition: 0.3s !important;
-}
-
-nav a[href="#contact"]:hover {
-    background-color: #B8860B !important;
-}
-
-/* 5. ГЕРОЙ-БЛОК (Светлый градиент) */
-.hero-bg { 
-    background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, #FFFFFF 100%), url('hero.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-}
-
-/* 6. ФОРМА И КНОПКА ОТПРАВКИ (ФУТЕР) */
-input {
-    border-bottom: 2px solid #E5E5E5 !important;
-    color: #1A1A1A !important;
-}
-
-input::placeholder { color: #999 !important; }
-
-#submitBtn {
-    background-color: #F0F0F0 !important;
-    color: #A0A0A0 !important;
-}
-
-/* Золотая кнопка, когда активна */
-.btn-gold { 
-    background-color: #B8860B !important; 
-    color: white !important; 
-    box-shadow: 0 10px 20px rgba(184, 134, 11, 0.2) !important;
-}
-
-/* 7. ЭЛЕМЕНТЫ */
+/* 3. ОТСТУПЫ И РАЗМЕРЫ */
 .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
 .mx-auto { margin-left: auto; margin-right: auto; }
 .w-full { width: 100% !important; }
-.gap-16 { gap: 4rem !important; }
+.gap-4 { gap: 1rem !important; }
+.gap-6 { gap: 1.5rem !important; }
+.gap-8 { gap: 2rem !important; }
+.gap-10 { gap: 2.5rem !important; }
+.gap-12 { gap: 3rem !important; }
+
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
 .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
 
-.review-card { 
-    background: #FFFFFF !important; 
-    border: 1px solid #EEE !important; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-
+/* 4. ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ */
 .rounded-full { border-radius: 9999px !important; }
 .rounded-2xl { border-radius: 1rem !important; }
 .uppercase { text-transform: uppercase !important; }
 .tracking-widest { letter-spacing: 0.1em !important; }
+.transition-all { transition: all 0.5s ease !important; }
 
-/* Иконки и телефон */
-nav i, nav a, .text-white i { color: #1A1A1A !important; }
+/* Иконки Font Awesome */
+.fa-brands { font-size: inherit; color: inherit; }
 
-.hidden { display: none !important; }
-@media (min-width: 768px) {
-    .md\:block { display: block !important; }
-}
+/* Фикс для навигации при скролле */
+.backdrop-blur-xl { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); background: rgba(10, 10, 10, 0.7); }
