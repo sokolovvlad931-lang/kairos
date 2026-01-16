@@ -10,30 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:italic,wght@300;400&family=Montserrat:wght@300;400;700&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ИЗМЕНЕНО: Основной фон стал светлым, текст — темным */
-        body { background-color: #FBFBF9; color: #1A1A1A; font-family: 'Montserrat', sans-serif; overflow-x: hidden; margin: 0; }
+        body { background-color: #0A0A0A; color: #F5F5F5; font-family: 'Montserrat', sans-serif; overflow-x: hidden; margin: 0; }
         .logo-font { font-family: 'Unbounded', sans-serif; }
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
         
         .hero-bg { 
-            /* ИЗМЕНЕНО: Градиент теперь уходит в светлый цвет фона */
-            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, #FBFBF9 100%), url('hero.jpg'); 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, #0A0A0A 100%), url('hero.jpg'); 
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         
-        .tour-card { background: #ffffff; border-radius: 24px; color: #1a1a1a; overflow: hidden; transition: 0.4s; cursor: pointer; height: 100%; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.05); }
-        .tour-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .tour-card { background: #ffffff; border-radius: 24px; color: #1a1a1a; overflow: hidden; transition: 0.4s; cursor: pointer; height: 100%; display: flex; flex-direction: column; }
+        .tour-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .tour-image-container { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
         .tour-image-container img { width: 100%; height: 100%; object-fit: cover; }
         
-        .gallery-item { aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #eee; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; opacity: 0.8; }
+        .gallery-item { aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #111; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; opacity: 0.6; }
         .gallery-item:hover img { transform: scale(1.1); opacity: 1; }
 
-        /* ИЗМЕНЕНО: Карточки отзывов теперь светлые с легкой тенью */
-        .review-card { background: #ffffff; border: 1px solid rgba(0,0,0,0.05); padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .review-card { background: #111; border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; }
 
-        #modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+        #modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); }
         .modal-content { background: #F5F5F5; color: #1a1a1a; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; border-radius: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
@@ -47,20 +44,21 @@
 </head>
 <body>
 
-<nav class="fixed w-full z-[100] px-4 md:px-6 py-4 md:py-6 flex justify-between items-center bg-white/60 backdrop-blur-md border-b border-black/5">
-    <div class="logo-font text-lg md:text-2xl uppercase text-black tracking-[0.2em] font-bold">Кайрос</div>
+<nav class="fixed w-full z-[100] px-4 md:px-6 py-4 md:py-6 flex justify-between items-center bg-black/40 backdrop-blur-md">
+    <div class="logo-font text-lg md:text-2xl uppercase text-white tracking-[0.2em] font-bold">Кайрос</div>
     
     <div class="flex items-center gap-4 md:gap-8">
-        <a href="tel:+79991234567" class="text-black hover:text-[#B8860B] transition-all flex items-center gap-2">
+        
+        <a href="tel:+79991234567" class="text-white hover:text-[#B8860B] transition-all flex items-center gap-2">
             <i class="fa-solid fa-phone text-lg md:text-base block"></i>
             <span class="hidden md:block text-[11px] tracking-widest font-light">+7 (999) 123-45-67</span>
         </a>
 
-        <a href="https://t.me/p_kairos" target="_blank" class="text-black hover:text-[#B8860B] transition-all">
+        <a href="https://t.me/p_kairos" target="_blank" class="text-white hover:text-[#B8860B] transition-all">
             <i class="fa-brands fa-telegram text-2xl block"></i>
         </a>
 
-        <a href="#contact" class="bg-black text-white px-4 md:px-6 py-2 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-[#B8860B] transition-all shadow-lg whitespace-nowrap">
+        <a href="#contact" class="bg-white text-black px-4 md:px-6 py-2 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-[#B8860B] hover:text-white transition-all shadow-lg whitespace-nowrap">
             Сделать заявку
         </a>
     </div>
@@ -68,28 +66,28 @@
 
 <header class="relative min-h-screen hero-bg flex items-center justify-center text-center px-6">
     <div class="max-w-5xl">
-        <h1 class="reveal text-6xl md:text-[9rem] italic mb-6 text-black leading-[0.9]">Сибирь <br><span class="not-italic font-light uppercase tracking-[0.2em] text-3xl md:text-5xl block mt-4 text-black">в моменте</span></h1>
-        <p class="reveal text-black/70 text-base md:text-lg max-w-xl mx-auto font-light tracking-wide delay-200">Авторские путешествия для тех, кто ищет вдохновение в дикой природе.</p>
+        <h1 class="reveal text-6xl md:text-[9rem] italic mb-6 text-white leading-[0.9]">Сибирь <br><span class="not-italic font-light uppercase tracking-[0.2em] text-3xl md:text-5xl block mt-4">в моменте</span></h1>
+        <p class="reveal text-white/70 text-base md:text-lg max-w-xl mx-auto font-light tracking-wide delay-200">Авторские путешествия для тех, кто ищет вдохновение в дикой природе.</p>
     </div>
 </header>
 
-<section class="py-24 px-6 md:px-20 bg-[#FBFBF9]">
+<section class="py-24 px-6 md:px-20 bg-[#0A0A0A]">
     <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
             <div class="reveal">
                 <div class="text-[#B8860B] text-4xl mb-6 italic">01</div>
-                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light text-black">Локальная экспертиза</h3>
-                <p class="text-black/50 text-sm leading-relaxed font-light">Мы живем в Сибири и знаем тропы, о которых не пишут в путеводителях. Каждый маршрут проверен лично.</p>
+                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light">Локальная экспертиза</h3>
+                <p class="text-white/50 text-sm leading-relaxed font-light">Мы живем в Сибири и знаем тропы, о которых не пишут в путеводителях. Каждый маршрут проверен лично.</p>
             </div>
             <div class="reveal delay-200">
                 <div class="text-[#B8860B] text-4xl mb-6 italic">02</div>
-                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light text-black">Малые группы</h3>
-                <p class="text-black/50 text-sm leading-relaxed font-light">Никаких автобусов на 50 человек. Только уютные компании до 8-10 участников для глубокого погружения.</p>
+                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light">Малые группы</h3>
+                <p class="text-white/50 text-sm leading-relaxed font-light">Никаких автобусов на 50 человек. Только уютные компании до 8-10 участников для глубокого погружения.</p>
             </div>
             <div class="reveal delay-400">
                 <div class="text-[#B8860B] text-4xl mb-6 italic">03</div>
-                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light text-black">Эстетика и комфорт</h3>
-                <p class="text-black/50 text-sm leading-relaxed font-light">Мы выбираем лучшие локации для проживания и заботимся о том, чтобы каждое ваше фото было произведением искусства.</p>
+                <h3 class="text-2xl mb-4 uppercase tracking-widest font-light">Эстетика и комфорт</h3>
+                <p class="text-white/50 text-sm leading-relaxed font-light">Мы выбираем лучшие локации для проживания и заботимся о том, чтобы каждое ваше фото было произведением искусства.</p>
             </div>
         </div>
     </div>
@@ -102,64 +100,64 @@
     </div>
 </section>
 
-<section class="py-24 px-6 md:px-20 bg-[#FBFBF9]">
+<section class="py-24 px-6 md:px-20 bg-[#0A0A0A]">
     <div class="max-w-7xl mx-auto">
-        <h2 class="text-4xl md:text-6xl text-black mb-16 italic font-light reveal text-center uppercase tracking-widest">Галерея</h2>
+        <h2 class="text-4xl md:text-6xl text-white mb-16 italic font-light reveal text-center uppercase tracking-widest">Галерея</h2>
         <div id="moments-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
     </div>
 </section>
 
-<section class="py-24 px-6 md:px-20 bg-white border-t border-black/5">
+<section class="py-24 px-6 md:px-20 bg-[#0A0A0A] border-t border-white/5">
     <div class="max-w-7xl mx-auto">
-        <h2 class="text-4xl md:text-6xl text-black mb-16 italic font-light reveal text-center">Впечатления</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 class="text-4xl md:text-6xl text-white mb-16 italic font-light reveal text-center">Впечатления</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="review-card reveal">
-                <p class="text-black/60 text-sm italic mb-6">"Это было лучшее решение лета. Алтай с Кайросом — это про людей и атмосферу."</p>
+                <p class="text-white/60 text-sm italic mb-6">"Это было лучшее решение лета. Алтай с Кайросом — это про людей и атмосферу."</p>
                 <div class="text-[#B8860B] font-bold text-[10px] uppercase tracking-widest">— Анна, Новосибирск</div>
             </div>
             <div class="review-card reveal delay-200">
-                <p class="text-black/60 text-sm italic mb-6">"Организация на высоте. Не нужно ни о чем думать, просто наслаждаешься видами."</p>
+                <p class="text-white/60 text-sm italic mb-6">"Организация на высоте. Не нужно ни о чем думать, просто наслаждаешься видами."</p>
                 <div class="text-[#B8860B] font-bold text-[10px] uppercase tracking-widest">— Максим, Томск</div>
             </div>
             <div class="review-card reveal delay-400">
-                <p class="text-black/60 text-sm italic mb-6">"Фотографии из тура теперь греют всю зиму. Спасибо за этот эстетический восторг!"</p>
+                <p class="text-white/60 text-sm italic mb-6">"Фотографии из тура теперь греют всю зиму. Спасибо за этот эстетический восторг!"</p>
                 <div class="text-[#B8860B] font-bold text-[10px] uppercase tracking-widest">— Елена, Кемерово</div>
             </div>
             <div class="review-card reveal">
-                <p class="text-black/60 text-sm italic mb-6">"Впервые поехала одна и нашла новых друзей. Программа очень насыщенная и интересная!"</p>
+                <p class="text-white/60 text-sm italic mb-6">"Впервые поехала одна и нашла новых друзей. Программа очень насыщенная и интересная!"</p>
                 <div class="text-[#B8860B] font-bold text-[10px] uppercase tracking-widest">— Ирина, Красноярск</div>
             </div>
             <div class="review-card reveal delay-200">
-                <p class="text-black/60 text-sm italic mb-6">"Байкал зимой — это нечто. Прозрачный лед и уютные вечера. Кайрос, вы супер!"</p>
+                <p class="text-white/60 text-sm italic mb-6">"Байкал зимой — это нечто. Прозрачный лед и уютные вечера. Кайрос, вы супер!"</p>
                 <div class="text-[#B8860B] font-bold text-[10px] uppercase tracking-widest">— Дмитрий, Москва</div>
             </div>
             <div class="review-card reveal delay-400">
-                <p class="text-black/60 text-sm italic mb-6">"Все продумано до мелочей: от трансфера до перекусов в горах. Максимальный комфорт."</p>
+                <p class="text-white/60 text-sm italic mb-6">"Все продумано до мелочей: от трансфера до перекусов в горах. Максимальный комфорт."</p>
                 <div class="text-[#B8860B] font-bold text-[10px] uppercase tracking-widest">— Ольга, Новосибирск</div>
             </div>
         </div>
     </div>
 </section>
 
-<footer id="contact" class="py-24 bg-[#F5F5F5] text-center px-6">
-    <h2 class="text-4xl md:text-7xl italic font-light mb-12 reveal text-black uppercase">Оставить заявку</h2>
+<footer id="contact" class="py-24 bg-[#0A0A0A] text-center px-6">
+    <h2 class="text-4xl md:text-7xl italic font-light mb-12 reveal text-white uppercase">Оставить заявку</h2>
     <form id="contactForm" class="max-w-xs mx-auto space-y-8 reveal">
-        <input type="text" id="userName" placeholder="Ваше Имя" required class="w-full bg-transparent border-b border-black/20 py-4 outline-none focus:border-[#B8860B] text-center text-black italic">
-        <input type="tel" id="userPhone" placeholder="Ваш телефон" required class="w-full bg-transparent border-b border-black/20 py-4 outline-none focus:border-[#B8860B] text-center text-black italic">
-        <label class="flex items-center gap-3 cursor-pointer opacity-60 hover:opacity-100 transition-opacity justify-center">
+        <input type="text" id="userName" placeholder="Ваше Имя" required class="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-[#B8860B] text-center text-white italic">
+        <input type="tel" id="userPhone" placeholder="Ваш телефон" required class="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-[#B8860B] text-center text-white italic">
+        <label class="flex items-center gap-3 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
             <input type="checkbox" id="policyCheck">
-            <span class="text-[9px] text-black text-left">Я согласен на обработку данных</span>
+            <span class="text-[9px] text-white text-left">Я согласен на обработку данных</span>
         </label>
-        <button type="submit" id="submitBtn" disabled class="w-full bg-black/5 text-black/20 py-5 rounded-2xl font-bold uppercase tracking-widest text-[11px] transition-all">Отправить запрос</button>
+        <button type="submit" id="submitBtn" disabled class="w-full bg-white/5 text-white/20 py-5 rounded-2xl font-bold uppercase tracking-widest text-[11px] transition-all">Отправить запрос</button>
     </form>
     
     <div class="mt-20 flex flex-col items-center gap-6 reveal">
-        <a href="https://t.me/p_kairos" target="_blank" class="text-black hover:text-[#B8860B] transition-all flex items-center gap-3">
+        <a href="https://t.me/p_kairos" target="_blank" class="text-white/60 hover:text-white transition-all flex items-center gap-3">
             <i class="fa-brands fa-telegram text-3xl"></i>
-            <span class="italic text-lg text-black">t.me/p_kairos</span>
+            <span class="italic text-lg">t.me/p_kairos</span>
         </a>
     </div>
-    <p class="mt-24 text-black/10 text-[8px] tracking-[0.8em] uppercase italic">© 2026 Kairos Journey</p>
+    <p class="mt-24 text-white/10 text-[8px] tracking-[0.8em] uppercase italic">© 2026 Kairos Journey</p>
 </footer>
 
 <div id="modal" onclick="closeModal()">
@@ -169,7 +167,6 @@
 </div>
 
 <script>
-    /* Весь JS оставлен без изменений, как ты и просил */
     const tours = [
         { 
             id: 1, 
@@ -271,9 +268,9 @@
             <div class="tour-card reveal" onclick="openModal(${tour.id})">
                 <div class="tour-image-container"><img src="${tour.image}" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'"></div>
                 <div class="p-8 flex flex-col flex-grow">
-                    <h3 class="text-3xl font-light mb-6 italic text-black">${tour.title}</h3>
-                    <div class="mt-auto flex justify-between items-center border-t border-gray-100 pt-6">
-                        <span class="font-bold text-xl text-black">${tour.price}</span>
+                    <h3 class="text-3xl font-light mb-6 italic">${tour.title}</h3>
+                    <div class="mt-auto flex justify-between items-center border-t pt-6">
+                        <span class="font-bold text-xl">${tour.price}</span>
                         <span class="text-[#B8860B] text-[10px] font-bold uppercase tracking-widest">Детали</span>
                     </div>
                 </div>
@@ -292,7 +289,7 @@
     const btn = document.getElementById('submitBtn');
     check.addEventListener('change', () => {
         btn.disabled = !check.checked;
-        btn.className = check.checked ? "w-full btn-gold text-white py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-[11px] cursor-pointer shadow-xl transition-all" : "w-full bg-black/5 text-black/20 py-5 rounded-2xl font-bold uppercase tracking-widest text-[11px]";
+        btn.className = check.checked ? "w-full btn-gold text-white py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-[11px] cursor-pointer shadow-xl transition-all" : "w-full bg-white/5 text-white/20 py-5 rounded-2xl font-bold uppercase tracking-widest text-[11px]";
     });
 
     function openModal(id) {
@@ -302,10 +299,10 @@
             <div class="space-y-6">
                 <img src="${tour.image}" class="w-full aspect-video object-cover rounded-2xl shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'">
                 <div class="px-2">
-                    <h2 class="text-4xl italic mb-4 text-black">${tour.title}</h2>
+                    <h2 class="text-4xl italic mb-4">${tour.title}</h2>
                     <p class="text-gray-600 mb-8 font-light text-sm leading-relaxed whitespace-pre-line">${tour.desc}</p>
                     <div class="flex justify-between items-center bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                        <span class="text-2xl font-bold text-black">${tour.price}</span>
+                        <span class="text-2xl font-bold">${tour.price}</span>
                         <a href="#contact" onclick="closeModal()" class="btn-gold text-white px-8 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest">Заказать</a>
                     </div>
                 </div>
@@ -345,6 +342,7 @@
 </script>
 </body>
 </html>
+
 
 
 
