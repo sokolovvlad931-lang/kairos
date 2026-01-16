@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>КАЙРОС | Авторские путешествия</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="tailwind-built.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:italic,wght@300;600&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css?v=1.1">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white text-gray-900">
 
@@ -216,12 +219,14 @@
     tours.forEach(tour => {
         grid.innerHTML += `
             <div class="tour-card reveal cursor-pointer group" onclick="openModal(${tour.id})">
-                <div class="overflow-hidden">
-                    <img src="${tour.image}" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="tour-image-container">
+                    <img src="${tour.image}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
-                <div class="p-8">
+                
+                <div class="tour-card-body">
                     <h3 class="text-2xl font-serif italic mb-4">${tour.title}</h3>
-                    <div class="flex justify-between items-center border-t border-gray-50 pt-6">
+                    
+                    <div class="tour-card-footer">
                         <span class="font-bold text-lg">${tour.price}</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-black transition-colors">Детали</span>
                     </div>
@@ -266,16 +271,17 @@
     // Валидация чекбокса
     function toggleSubmit() {
         const check = document.getElementById('privacyAgree');
-        const btn = document.getElementById('submitBtn');
-        if (check.checked) {
-            btn.disabled = false;
-            btn.classList.replace('bg-gray-200', 'bg-black');
-            btn.classList.add('hover:scale-105');
-        } else {
-            btn.disabled = true;
-            btn.classList.replace('bg-black', 'bg-gray-200');
-            btn.classList.remove('hover:scale-105');
-        }
+    const btn = document.getElementById('submitBtn');
+    
+    if (check.checked) {
+        btn.disabled = false;
+        btn.classList.remove('bg-gray-200', 'cursor-not-allowed');
+        btn.classList.add('bg-black', 'hover:scale-105', 'cursor-pointer');
+    } else {
+        btn.disabled = true;
+        btn.classList.remove('bg-black', 'hover:scale-105', 'cursor-pointer');
+        btn.classList.add('bg-gray-200', 'cursor-not-allowed');
+    }
     }
 
     // Отправка формы в ТГ
@@ -299,6 +305,8 @@
 </script>
 </body>
 </html>
+
+
 
 
 
