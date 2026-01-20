@@ -234,28 +234,46 @@
             </div>`;
     });
 
-    function openModal(id) {
-        const tour = tours.find(t => t.id === id);
-        document.getElementById('modal-body').innerHTML = `
-        <div class="modal-content relative" onclick="event.stopPropagation()"> 
-            <button onclick="closeModal()" class="absolute top-4 right-6 text-2xl text-gray-300 hover:text-black transition-colors">✕</button>
-            <h2 class="text-3xl font-serif italic mb-6 pr-8">${tour.title}</h2>
-            <div class="text-gray-600 text-sm leading-relaxed whitespace-pre-line mb-10 border-l border-gray-100 pl-6 text-left">
-                ${tour.desc}
+   function openModal(id) {
+    const tour = tours.find(t => t.id === id);
+    
+    // Генерируем галерею
+    const galleryHtml = `
+        <div class="tour-mini-gallery">
+            <img src="moment_9.jpg" class="gallery-img" alt="1">
+            <img src="moment_10.jpg" class="gallery-img" alt="2">
+            <img src="moment_11.jpg" class="gallery-img" alt="3">
+            <img src="moment_12.jpg" class="gallery-img" alt="4">
+        </div>
+    `;
+
+    document.getElementById('modal-body').innerHTML = `
+    <div class="modal-content relative" onclick="event.stopPropagation()"> 
+        <button onclick="closeModal()" class="absolute top-4 right-6 text-2xl text-gray-300 hover:text-black transition-colors">✕</button>
+        
+        <h2 class="text-3xl font-serif italic mb-6 pr-8">${tour.title}</h2>
+        
+        <div class="text-gray-600 text-sm leading-relaxed whitespace-pre-line mb-8 border-l border-gray-100 pl-6 text-left">
+            ${tour.desc}
+        </div>
+
+        <h4 class="text-[10px] uppercase tracking-widest font-bold mb-4 text-gray-400">Галерея маршрута</h4>
+        ${galleryHtml}
+
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between border-t pt-6 mt-4">
+            <div class="text-2xl font-bold">${tour.price}</div>
+            <div class="flex gap-2">
+                <a href="https://t.me/p_kairos" target="_blank" class="bg-[#229ED9] text-white px-8 py-3 rounded-xl font-bold text-[10px] uppercase flex items-center gap-2 hover:scale-105 transition-transform">
+                    <i class="fa-brands fa-telegram"></i> Telegram
+                </a>
+                <button onclick="closeModal()" class="bg-black text-white px-8 py-3 rounded-xl font-bold text-[10px] uppercase hover:scale-105 transition-transform">Закрыть</button>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
-                <div class="text-2xl font-bold">${tour.price}</div>
-                <div class="flex gap-2">
-                    <a href="https://t.me/p_kairos" target="_blank" class="bg-[#229ED9] text-white px-8 py-3 rounded-xl font-bold text-[10px] uppercase flex items-center gap-2 hover:scale-105 transition-transform">
-                        <i class="fa-brands fa-telegram"></i> Telegram
-                    </a>
-                    <button onclick="closeModal()" class="bg-black text-white px-8 py-3 rounded-xl font-bold text-[10px] uppercase hover:scale-105 transition-transform">Закрыть</button>
-                </div>
-            </div>
-        </div>`;
-        document.getElementById('modal').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
+        </div>
+    </div>`;
+    
+    document.getElementById('modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
 
     function closeModal() { 
         document.getElementById('modal').style.display = 'none'; 
@@ -305,6 +323,7 @@
 </script>
 </body>
 </html>
+
 
 
 
