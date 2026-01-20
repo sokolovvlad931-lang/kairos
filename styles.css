@@ -477,3 +477,77 @@ html, body {
 .gallery-img:hover {
     transform: scale(1.05) !important;
 }
+.moments-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 15px !important;
+}
+.moment-item { aspect-ratio: 1/1; overflow: hidden; border-radius: 15px; }
+.moment-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.moment-item:hover .moment-img { transform: scale(1.1); }
+.cursor-zoom-in { cursor: zoom-in !important; }
+
+@media (max-width: 480px) {
+    .moments-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; }
+    .tour-mini-gallery { grid-template-columns: repeat(2, 1fr) !important; }
+}
+/* Фикс для лайтбокса */
+#photo-lightbox {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    display: none; /* Управляется через JS */
+}
+
+#lightbox-img {
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    margin: auto !important;
+    display: block !important;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+/* Гарантируем, что лайтбокс всегда на весь экран и по центру */
+#photo-lightbox {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    display: none; /* Управляется через JS */
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox-img {
+    max-width: 90vw !important;
+    max-height: 85vh !important;
+    object-fit: contain !important; /* Не дает картинке искажаться */
+    margin: auto;
+}
+#photo-lightbox {
+    display: none !important; /* Прячем по умолчанию */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    z-index: 9999 !important; /* Поверх всех окон */
+    
+    /* Эти три строки делают магию центровки */
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#lightbox-img {
+    max-width: 90vw !important;
+    max-height: 85vh !important;
+    object-fit: contain !important; /* Картинка не растягивается */
+    margin: auto !important;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
