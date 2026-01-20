@@ -442,10 +442,38 @@ html, body {
     flex-shrink: 0 !important;
 }
 
-/* 5. Адаптив для мобильных (если экран совсем узкий) */
+/* 5. Адаптив для мобильных */
 @media (max-width: 480px) {
     #modal-body .flex.items-center.justify-between {
         flex-direction: column !important;
         gap: 20px !important;
     }
+} 
+
+/* --- ГАЛЕРЕЯ ВНУТРИ ТУРА --- */
+.tour-mini-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+}
+
+@media (max-width: 480px) {
+    .tour-mini-gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+.gallery-img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    transition: 0.3s !important;
+    background: #f3f4f6;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05) !important;
 }
