@@ -423,27 +423,69 @@ function openPrivacyModal() {
     document.body.style.overflow = 'hidden';
 }
 </script>
-<div id="photo-lightbox" 
-     onclick="closeLightbox()" 
+<div id="photo-lightbox"  
+     onclick="closeLightbox()"  
      class="fixed inset-0 z-[9999] bg-black/95 hidden items-center justify-center p-4 cursor-zoom-out">
     
     <button onclick="changePhoto(-1)" 
+            id="btn-prev"
             class="absolute left-0 top-0 bottom-0 w-20 md:w-32 flex items-center justify-center text-white text-6xl md:text-8xl z-[10001] transition-all hover:bg-white/5 group">
         <span class="drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] opacity-70 group-hover:opacity-100 transition-all select-none">‹</span>
     </button>
     
-    <img id="lightbox-img" 
-         src="" 
-         onclick="event.stopPropagation()" 
+    <img id="lightbox-img"  
+         src=""  
+         onclick="event.stopPropagation()"  
          class="max-w-full max-h-[90vh] object-contain rounded-sm shadow-2xl transition-all duration-300 select-none cursor-default">
     
     <button onclick="changePhoto(1)" 
+            id="btn-next"
             class="absolute right-0 top-0 bottom-0 w-20 md:w-32 flex items-center justify-center text-white text-6xl md:text-8xl z-[10001] transition-all hover:bg-white/5 group">
         <span class="drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] opacity-70 group-hover:opacity-100 transition-all select-none">›</span>
     </button>
+
+    <style>
+        @media (max-width: 768px) {
+            #btn-prev, #btn-next { display: none !important; }
+        }
+    </style>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
