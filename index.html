@@ -29,7 +29,7 @@
             <a href="#tours" class="hidden md:block text-[12px] uppercase tracking-[0.2em] font-medium text-gray-500 hover:text-black transition-colors">Направления</a>
         </div>
 
-        <a href="https://t.me/p_kairos" target="_blank" class="text-black/40 hover:text-black transition-all hover:scale-110">
+        <a href="https://t.me/Sib_Kayros" target="_blank" class="text-black/40 hover:text-black transition-all hover:scale-110">
             <i class="fa-brands fa-telegram text-2xl md:text-3xl"></i>
         </a>
     </div>
@@ -279,7 +279,7 @@
         <div class="flex flex-col sm:flex-row gap-4 items-center justify-between border-t pt-6 mt-4">
             <div class="text-2xl font-bold">${tour.price}</div>
             <div class="flex gap-2">
-                <a href="https://t.me/p_kairos" target="_blank" class="bg-[#229ED9] text-white px-8 py-3 rounded-xl font-bold text-[10px] uppercase flex items-center gap-2 hover:scale-105 transition-transform">
+                <a href="https://t.me/Sib_Kayros" target="_blank" class="bg-[#229ED9] text-white px-8 py-3 rounded-xl font-bold text-[10px] uppercase flex items-center gap-2 hover:scale-105 transition-transform">
                     <i class="fa-brands fa-telegram"></i> Telegram
                 </a>
                 <button onclick="closeModal()" class="bg-black text-white px-8 py-3 rounded-xl font-bold text-[10px] uppercase hover:scale-105 transition-transform">Закрыть</button>
@@ -338,6 +338,8 @@
     });
 let currentImages = []; // Список путей к фото
 let currentIndex = 0;   // Индекс текущего фото
+let touchStartX = 0;
+let touchEndX = 0;
 
 function openLightbox(src) {
     const imgElement = event.target;
@@ -354,6 +356,16 @@ function openLightbox(src) {
     const lb = document.getElementById('photo-lightbox');
     lb.style.setProperty('display', 'flex', 'important');
     document.body.style.overflow = 'hidden';
+lb.ontouchstart = e => {
+        touchStartX = e.changedTouches[0].screenX;
+    };
+    lb.ontouchend = e => {
+        touchEndX = e.changedTouches[0].screenX;
+        // Если палец проехал влево больше чем на 50px
+        if (touchEndX < touchStartX - 50) changePhoto(1);
+        // Если палец проехал вправо больше чем на 50px
+        if (touchEndX > touchStartX + 50) changePhoto(-1);
+    };
 }
 
 function updateLightbox() {
@@ -432,6 +444,44 @@ function openPrivacyModal() {
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
