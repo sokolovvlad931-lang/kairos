@@ -153,17 +153,30 @@
 
 <footer id="contact" class="py-24 text-center bg-white px-6">
     <h2 class="text-4xl font-serif italic mb-12">Оставить заявку</h2>
-    <form id="contactForm" class="max-w-xs mx-auto space-y-6">
-        <input type="text" id="userName" placeholder="Имя" required class="w-full border-b border-gray-200 py-3 outline-none focus:border-black text-center italic">
-        <input type="tel" id="userPhone" placeholder="Телефон" required class="w-full border-b border-gray-200 py-3 outline-none focus:border-black text-center italic">
-        
-        <div class="flex items-center gap-2 text-left justify-center cursor-pointer">
-            <input type="checkbox" id="privacyAgree" class="cursor-pointer" required onchange="toggleSubmit()">
-            <label for="privacyAgree" class="text-[9px] text-gray-400 uppercase tracking-widest cursor-pointer">Согласен на обработку данных</label>
-        </div>
+    
+    <div class="mx-auto" style="max-width: 400px;">
+        <form id="contactForm" class="space-y-6">
+            <input type="text" id="userName" placeholder="Имя" required 
+                   class="w-full border-b border-gray-200 py-4 outline-none focus:border-black text-center italic transition-all">
+            
+            <input type="tel" id="userPhone" placeholder="Телефон" required 
+                   class="w-full border-b border-gray-200 py-4 outline-none focus:border-black text-center italic transition-all">
 
-        <button type="submit" id="submitBtn" disabled class="w-full bg-gray-200 text-white py-4 rounded-2xl font-bold uppercase text-[10px] tracking-widest transition-all">Отправить</button>
-    </form>
+            <div class="py-2">
+                <div class="flex items-center gap-2 justify-center">
+                    <input type="checkbox" id="privacyAgree" onchange="toggleSubmit()" class="cursor-pointer w-4 h-4 accent-black">
+                    <label for="privacyAgree" class="text-[10px] text-gray-400 uppercase tracking-widest cursor-pointer select-none">
+                        Согласен на <span onclick="openPrivacyModal()" class="text-black font-extrabold underline decoration-2 underline-offset-4 cursor-pointer hover:opacity-60 transition-all">ОБРАБОТКУ ДАННЫХ</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" disabled 
+                    class="w-full py-5 bg-gray-200 text-white rounded-2xl font-bold uppercase tracking-[0.2em] text-[10px] transition-all duration-300">
+                Отправить заявку
+            </button>
+        </form>
+    </div>
 </footer>
 
 <div id="modal" style="display: none;" onclick="closeModal()" class="fixed inset-0 z-[1000] items-center justify-center p-4">
@@ -323,30 +336,136 @@
             } 
         });
     });
+let currentImages = []; // Список путей к фото
+let currentIndex = 0;   // Индекс текущего фото
+
 function openLightbox(src) {
+    const imgElement = event.target;
+    // Находим все картинки в том же контейнере (сетка моментов или галерея модалки)
+    const container = imgElement.parentElement;
+    const allImgs = Array.from(container.querySelectorAll('img'));
+    
+    // Сохраняем список всех фото и находим номер текущей
+    currentImages = allImgs.map(img => img.src);
+    currentIndex = currentImages.indexOf(src);
+
+    updateLightbox();
+    
     const lb = document.getElementById('photo-lightbox');
+    lb.style.setProperty('display', 'flex', 'important');
+    document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
     const img = document.getElementById('lightbox-img');
-    img.src = src;
-    lb.style.setProperty('display', 'flex', 'important'); // Включаем flex-контейнер
-    document.body.style.overflow = 'hidden'; 
+    img.src = currentImages[currentIndex];
+}
+
+function changePhoto(step) {
+    // Останавливаем закрытие лайтбокса при клике на стрелку
+    if (window.event) window.event.stopPropagation(); 
+    
+    currentIndex += step;
+    if (currentIndex >= currentImages.length) currentIndex = 0;
+    if (currentIndex < 0) currentIndex = currentImages.length - 1;
+    
+    updateLightbox();
 }
 
 function closeLightbox() {
     const lb = document.getElementById('photo-lightbox');
-    lb.style.setProperty('display', 'none', 'important'); // Выключаем
-    
+    lb.style.setProperty('display', 'none', 'important');
+    // Возвращаем скролл только если не открыта модалка тура
     if (document.getElementById('modal').style.display === 'none') {
         document.body.style.overflow = 'auto';
     }
 }
+
+// Добавим управление с клавиатуры (стрелочки и Esc)
+document.addEventListener('keydown', (e) => {
+    const lb = document.getElementById('photo-lightbox');
+    if (lb.style.display === 'flex') {
+        if (e.key === "ArrowRight") changePhoto(1);
+        if (e.key === "ArrowLeft") changePhoto(-1);
+        if (e.key === "Escape") closeLightbox();
+    }
+});
+function openPrivacyModal() {
+    // Очищаем старый контент модалки и вставляем текст политики
+    document.getElementById('modal-body').innerHTML = `
+    <div class="modal-content relative text-left" onclick="event.stopPropagation()">
+        <button onclick="closeModal()" class="absolute top-4 right-6 text-2xl text-gray-300 hover:text-black transition-colors">✕</button>
+        <h2 class="text-3xl font-serif italic mb-6">Политика конфиденциальности</h2>
+        <div class="text-gray-600 text-sm leading-relaxed space-y-4 font-light">
+            <p>Ваша конфиденциальность важна для нас. Мы собираем ваше имя и номер телефона исключительно для того, чтобы связаться с вами и обсудить детали путешествия с командой КАЙРОС.</p>
+            <p>Мы гарантируем, что ваши данные не будут переданы третьим лицам или использованы для рекламных рассылок без вашего согласия.</p>
+            <p>Нажимая кнопку «Отправить заявку», вы подтверждаете свое согласие на использование предоставленной информации для связи.</p>
+        </div>
+        <div class="mt-8 border-t border-gray-100 pt-6">
+            <button onclick="closeModal()" class="w-full bg-black text-white py-4 rounded-xl font-bold uppercase text-[10px] tracking-widest hover:scale-[1.02] transition-transform">Все понятно</button>
+        </div>
+    </div>`;
+    
+    // Показываем модалку
+    document.getElementById('modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
 </script>
 <div id="photo-lightbox" 
-     class="fixed inset-0 z-[9999] bg-black/95 hidden items-center justify-center p-4 cursor-zoom-out" 
-     onclick="closeLightbox()">
-    <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-all duration-300">
+     onclick="closeLightbox()" 
+     class="fixed inset-0 z-[9999] bg-black/95 hidden items-center justify-center p-4 cursor-zoom-out">
+    
+    <button onclick="changePhoto(-1)" 
+            class="absolute left-0 top-0 bottom-0 w-20 md:w-32 flex items-center justify-center text-white text-6xl md:text-8xl z-[10001] transition-all hover:bg-white/5 group">
+        <span class="drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] opacity-70 group-hover:opacity-100 transition-all select-none">‹</span>
+    </button>
+    
+    <img id="lightbox-img" 
+         src="" 
+         onclick="event.stopPropagation()" 
+         class="max-w-full max-h-[90vh] object-contain rounded-sm shadow-2xl transition-all duration-300 select-none cursor-default">
+    
+    <button onclick="changePhoto(1)" 
+            class="absolute right-0 top-0 bottom-0 w-20 md:w-32 flex items-center justify-center text-white text-6xl md:text-8xl z-[10001] transition-all hover:bg-white/5 group">
+        <span class="drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] opacity-70 group-hover:opacity-100 transition-all select-none">›</span>
+    </button>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
